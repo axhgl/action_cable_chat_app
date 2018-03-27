@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       message.mentions.each do |mention|
         ActionCable.server.broadcast "room_channel_user_#{mention.id}",
                                      mention: true,
-                                     mentioning_message: "You have a new mention from @#{mention.username}"
+                                     mention_alert: "You have a new mention from @#{message.user.username}"
       end
     
     else

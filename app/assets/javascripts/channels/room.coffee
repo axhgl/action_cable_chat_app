@@ -6,7 +6,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-      alert(data.mentioning_message) if data.mention
+      alert(data.mention_alert) if data.mention
       if data.message && !data.message.blank?
         $('#messages-table').append data.message 
         scroll_bottom()
